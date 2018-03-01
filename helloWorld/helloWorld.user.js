@@ -45,9 +45,9 @@ if(typeof(dojo) != "undefined") {
             waitFor( function(){
 			// wait until the "loading..." node has been hidden
 			// indicating that we have loaded content.
-			var datacenter = "https://apps.na.collabserv.com";
+			//var datacenter = "https://apps.na.collabserv.com";
 			var xhrargs = {
-       				url: datacenter + "/connections/opensocial/rest/people/@me/@self",
+       				url: "/connections/opensocial/rest/people/@me/@self",
         			handleAs: "json"
 			};
 		    	var deferred = dojo.xhrGet(xhrargs);
