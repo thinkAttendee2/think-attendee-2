@@ -18,6 +18,7 @@
 // ==/UserScript==
 
 if(typeof(dojo) != "undefined") {
+	
 	function MyFunction() {
 		var datacenter = "https://apps.na.collabserv.com";
 		var xhrargs = {
@@ -30,7 +31,14 @@ if(typeof(dojo) != "undefined") {
         		}
 		};
 		console.log("xhrargs=" + JSON.stringify(xhrargs, null, 4));
+		var deferred = dojo.xhrGet(xhrargs);
+		deferred.then(
+			function(results) {
+				console.log('results = ',results);
+			}
+		);
 	}
+	
 	require(["dojo/domReady!"], function(){
         try {
             // utility function to let us wait for a specific element of the page to load...
