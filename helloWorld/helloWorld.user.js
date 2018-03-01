@@ -48,12 +48,7 @@ if(typeof(dojo) != "undefined") {
 			var datacenter = "https://apps.na.collabserv.com";
 			var xhrargs = {
        			url: datacenter + "/connections/opensocial/rest/people/@me/@self",
-        			handleAs: "json",
-        			preventCache : false,
-       				error: function(response, args) {
-         				 console.error(response);
-        				 console.error(response.stack);
-        			}
+        			handleAs: "json"
 			};
 		    	var deferred = dojo.xhrGet(xhrargs);
 			deferred.then(
