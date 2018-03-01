@@ -45,7 +45,6 @@ if(typeof(dojo) != "undefined") {
             waitFor( function(){
 			// wait until the "loading..." node has been hidden
 			// indicating that we have loaded content.
-			//var datacenter = "https://apps.na.collabserv.com";
 			var xhrargs = {
        				url: "/connections/opensocial/rest/people/@me/@self",
         			handleAs: "json"
