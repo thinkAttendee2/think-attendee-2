@@ -28,7 +28,7 @@ if(typeof(dojo) != "undefined") {
         			 console.error(response.stack);
         		}
 		};
-		console.log("xhrargs=" + xhrargs);
+		console.log("xhrargs=" + JSON.stringify(xhrargs, null, 4));
 	}
 	require(["dojo/domReady!"], function(){
         try {
