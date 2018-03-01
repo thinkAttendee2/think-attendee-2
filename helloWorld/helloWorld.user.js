@@ -19,9 +19,7 @@
 
 if(typeof(dojo) != "undefined") {
 	function MyFunction() {
-		var xhrargs = {
-		};
-		console.log("xhrargs=" + xhrargs);
+		console.log("aargh!");
 	}
 	require(["dojo/domReady!"], function(){
         try {
