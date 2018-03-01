@@ -19,8 +19,9 @@
 
 if(typeof(dojo) != "undefined") {
 	function MyFunction() {
+		var datacenter = "https://apps.na.collabserv.com";
 		var xhrargs = {
-       			url: "/opensocial/rest/people/@me/@self",
+       			url: datacenter + "/opensocial/rest/people/@me/@self",
         		handleAs: "json",
         		preventCache : false,
        			error: function(response, args) {
