@@ -81,7 +81,7 @@ if(typeof(dojo) != "undefined") {
 			deferred.then(
 				function(results) {
 					console.log('user name = ' + results.entry.displayName);
-					dojo.query("span.shareSome-title")[0].textContent="hello " results.entry.displayName +"! ";
+					dojo.query("span.shareSome-title")[0].textContent="hello " + results.entry.displayName +"! ";
 
 				}
 			);
