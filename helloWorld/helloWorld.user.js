@@ -35,6 +35,7 @@ if(typeof(dojo) != "undefined") {
 		deferred.then(
 			function(results) {
 				console.log('results = ',JSON.stringify(results, null, 4));
+				console.log('user name = ' + results.entry.displayName);
 			}
 		);
 	}
