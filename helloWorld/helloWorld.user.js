@@ -53,7 +53,7 @@ if(typeof(dojo) != "undefined") {
 		    	var deferred = dojo.xhrGet(xhrargs);
 			deferred.then(
 				function(results) {
-					//console.log('user name = ' + results.entry.displayName);
+					console.log('JSON response = ' + JSON.stringify(results, null, 4)); 
 					dojo.query("span.shareSome-title")[0].textContent="hello " + results.entry.displayName +"! ";
 
 				}
