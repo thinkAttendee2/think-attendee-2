@@ -18,6 +18,7 @@
 // ==/UserScript==
 
 if(typeof(dojo) != "undefined") {
+	var foo = "bar";
 	require(["dojo/domReady!"], function(){
         try {
             // utility function to let us wait for a specific element of the page to load...
@@ -45,8 +46,8 @@ if(typeof(dojo) != "undefined") {
             waitFor( function(){
 			// wait until the "loading..." node has been hidden
 			// indicating that we have loaded content.
-   			dojo.query("span.shareSome-title")[0].textContent=lconn.homepage.userName+", you handsome devil, not!";
-		        console.log("test update");
+   			dojo.query("span.shareSome-title")[0].textContent=lconn.homepage.userName+"! ";
+		        console.log("foo=" + foo);
        	          },
 		  ".lotusStreamTopLoading div.loaderMain.lotusHidden");
       } catch(e) {
