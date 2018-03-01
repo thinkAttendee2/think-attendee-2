@@ -19,8 +19,17 @@
 
 if(typeof(dojo) != "undefined") {
 	function MyFunction() {
-		var foo = "barbar";
-		console.log("foo=" +foo);
+		var xhrargs = {
+       			url: "/opensocial/rest/people/@me/@self",
+        		handleAs: "json",
+        		preventCache : false,
+       			error: function(response, args) {
+         			 console.error(response);
+        			 console.error(response.stack);
+        		};
+			
+		};
+		console.log("xhrargs=" + xhrargs);
 	}
 	require(["dojo/domReady!"], function(){
         try {
