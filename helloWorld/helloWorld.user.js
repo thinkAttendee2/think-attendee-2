@@ -34,7 +34,7 @@ if(typeof(dojo) != "undefined") {
 		var deferred = dojo.xhrGet(xhrargs);
 		deferred.then(
 			function(results) {
-				console.log('results = ',results);
+				console.log('results = ',JSON.stringify(results, null, 4));
 			}
 		);
 	}
