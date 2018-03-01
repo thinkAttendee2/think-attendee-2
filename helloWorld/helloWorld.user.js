@@ -18,28 +18,6 @@
 // ==/UserScript==
 
 if(typeof(dojo) != "undefined") {
-	
-	function MyFunction() {
-		var datacenter = "https://apps.na.collabserv.com";
-		var xhrargs = {
-       			url: datacenter + "/connections/opensocial/rest/people/@me/@self",
-        		handleAs: "json",
-        		preventCache : false,
-       			error: function(response, args) {
-         			 console.error(response);
-        			 console.error(response.stack);
-        		}
-		};
-		console.log("xhrargs=" + JSON.stringify(xhrargs, null, 4));
-		var deferred = dojo.xhrGet(xhrargs);
-		deferred.then(
-			function(results) {
-				console.log('results = ',JSON.stringify(results, null, 4));
-				console.log('user name = ' + results.entry.displayName);
-			}
-		);
-	}
-	
 	require(["dojo/domReady!"], function(){
         try {
             // utility function to let us wait for a specific element of the page to load...
@@ -80,7 +58,7 @@ if(typeof(dojo) != "undefined") {
 		    	var deferred = dojo.xhrGet(xhrargs);
 			deferred.then(
 				function(results) {
-					console.log('user name = ' + results.entry.displayName);
+					//console.log('user name = ' + results.entry.displayName);
 					dojo.query("span.shareSome-title")[0].textContent="hello " + results.entry.displayName +"! ";
 
 				}
