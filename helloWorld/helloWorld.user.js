@@ -67,8 +67,24 @@ if(typeof(dojo) != "undefined") {
             waitFor( function(){
 			// wait until the "loading..." node has been hidden
 			// indicating that we have loaded content.
-   			dojo.query("span.shareSome-title")[0].textContent=lconn.homepage.userName+"! ";
-		        MyFunction();
+			var datacenter = "https://apps.na.collabserv.com";
+			var xhrargs = {
+       			url: datacenter + "/connections/opensocial/rest/people/@me/@self",
+        			handleAs: "json",
+        			preventCache : false,
+       				error: function(response, args) {
+         				 console.error(response);
+        				 console.error(response.stack);
+        			}
+			};
+		    	var deferred = dojo.xhrGet(xhrargs);
+			deferred.then(
+				function(results) {
+					console.log('user name = ' + results.entry.displayName);
+					dojo.query("span.shareSome-title")[0].textContent="hello " results.entry.displayName +"! ";
+
+				}
+			);
        	          },
 		  ".lotusStreamTopLoading div.loaderMain.lotusHidden");
       } catch(e) {
