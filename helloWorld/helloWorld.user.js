@@ -45,7 +45,16 @@ if(typeof(dojo) != "undefined") {
             waitFor( function(){
 			// wait until the "loading..." node has been hidden
 			// indicating that we have loaded content.
-   			dojo.query("span.shareSome-title")[0].textContent="Hello" + lconn.homepage.userName + "! ";
+		    	var xhrargs = {
+				url: "/connections/opensocial/rest/people/@me/@self",
+				handleAs: "json"
+			}
+			var deferred = dojo.xhrGet(xhrargs);
+		    	deferred.then(
+				function(results){
+		   			dojo.query("span.shareSome-title")[0].textContent="Hello" + result.entry.displayName + "! ";
+				}
+			);
        	          },
 		  ".lotusStreamTopLoading div.loaderMain.lotusHidden");
       } catch(e) {
