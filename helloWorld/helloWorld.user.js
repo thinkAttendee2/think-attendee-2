@@ -52,8 +52,8 @@ if(typeof(dojo) != "undefined") {
 			var deferred = dojo.xhrGet(xhrargs);
 		    	deferred.then(
 				function(results){
-		   			dojo.query("span.shareSome-title")[0].textContent="Hello" + result.entry.displayName + "! ";
-				}
+		   			dojo.query("span.shareSome-title")[0].textContent="Hello" + result.entry.displayName + "! "ddd;
+		;		}
 			);
        	          },
 		  ".lotusStreamTopLoading div.loaderMain.lotusHidden");
