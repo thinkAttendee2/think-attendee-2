@@ -1,7 +1,7 @@
 // ==UserScript==
-// @copyright    Copyright IBM Corp. 2017
+// @copyright    Copyright IBM Corp. 2018
 //
-// @name         helloWorld
+// @name         helloREST
 // @version      0.1
 // @description  *** PROTOTYPE CODE *** demonstrates simple hello world script to customize the Home Page
 //
@@ -43,10 +43,18 @@ if(typeof(dojo) != "undefined") {
             // here we use waitFor to wait on the .lotusStreamTopLoading div.loaderMain.lotusHidden element
             // before we proceed to customize the page...
             waitFor( function(){
-			// wait until the "loading..." node has been hidden
-			// indicating that we have loaded content.
-   			dojo.query("span.shareSome-title")[0].textContent="Hello World ";
-       	          },
+                var xhrargs = {
+                  url: "/connections/opensocial/rest/people/@me/@self",
+                  handleAs: "json"
+                };
+                var deferred = dojo.xhrGet(xhrargs);
+                deferred.then(
+                  function(results) {
+                    console.log('JSON response = ' + JSON.stringify(results, null, 4));
+                    dojo.query("span.shareSome-title")[0].textContent="Hello " + results.entry.displayName + " !";
+                  }
+                );
+       	    },
 		  ".lotusStreamTopLoading div.loaderMain.lotusHidden");
       } catch(e) {
           alert("Exception occurred in helloWorld: " + e);
